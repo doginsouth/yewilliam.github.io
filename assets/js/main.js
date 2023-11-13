@@ -256,6 +256,7 @@
 		}
 
 })(jQuery);
+
 function typeEffect(element, speed) {
 	var text = element.innerHTML;
 	element.innerHTML = "";
