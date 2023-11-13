@@ -260,29 +260,43 @@
 function typeEffect(element, speed) {
 	var text = element.innerHTML;
 	element.innerHTML = "";
-	
+  
 	var i = 0;
 	var timer = setInterval(function() {
-    if (i < text.length) {
-      element.append(text.charAt(i));
-      i++;
-    } else {
-      clearInterval(timer);
-    }
-  }, speed);
-}
-
-
-// application
-var speed = 75;
-var h1 = document.querySelector('h1');
-var delay = h1.innerHTML.length * speed + speed;
-
-// type affect to header
-typeEffect(h1, speed);
-
-// type affect to body
-setTimeout(function(){
-  p.style.display = "inline-block";
-  typeEffect(p, speed);
-}, delay);
+	  if (i < text.length) {
+		element.append(text.charAt(i));
+		i++;
+	  } else {
+		clearInterval(timer);
+	  }
+	}, speed);
+  }
+  
+  document.addEventListener("DOMContentLoaded", function() {
+	// Get the element with id "intro"
+	var introDiv = document.getElementById("intro");
+  
+	// Check if the element exists
+	if (introDiv) {
+	  // Get the h1 element within the "intro" div
+	  var h1 = introDiv.querySelector('h1');
+  
+	  // Set the speed for typing effect
+	  var speed = 75;
+  
+	  // Calculate the delay based on the length of the text in h1
+	  var delay = h1.innerHTML.length * speed + speed;
+  
+	  // Type effect for h1
+	  typeEffect(h1, speed);
+  
+	  // Type effect for other elements after a delay
+	  setTimeout(function(){
+		// You need to define 'p' before using it. 
+		// For example, you can select the first paragraph using querySelector.
+		var p = document.querySelector('p');
+		p.style.display = "inline-block";
+		typeEffect(p, speed);
+	  }, delay);
+	}
+  });
