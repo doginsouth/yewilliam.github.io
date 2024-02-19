@@ -54,8 +54,38 @@ section, summary, time, mark, audio, video {
 	  border-radius: 0 3px 3px 0;
 	  user-select: none;
 	}
-	
-	/* Position the "next button" to the right */
+	/* Style the button that is used to open and close the collapsible content */
+	.collapsible {
+		color: #fff;
+  cursor: pointer;
+  padding: 10px;
+  border: none;
+  text-align: left;
+  width: 100%;
+  outline: none;
+	  }
+	  
+	  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+	  .active, .collapsible:hover {
+		background-color: #ffffff;
+		box-shadow: inset 0 0 0 2px black;
+		color: black !important;
+
+	  }
+	  
+	  /* Style the collapsible content. Note: hidden by default */
+	  .content {
+		padding: 0 18px;
+		overflow: hidden;
+		background-color: #f1f1f1;
+		max-height: 0;
+		transition: max-height 2s ease; /* Add smooth transition for max-height */
+	  }
+	  
+	  .collapsible.active + .content {
+		max-height: 500px; /* Set an appropriate value for the maximum height */
+	  }
+	  
 	.next {
 	  right: 0;
 	  border-radius: 3px 0 0 3px;
@@ -97,10 +127,7 @@ section, summary, time, mark, audio, video {
 	  display: inline-block;
 	  transition: background-color 0.6s ease;
 	}
-	
-	.active, .dot:hover {
-	  background-color: #717171;
-	}
+
 	
 	/* Fading animation */
 	.fade {
@@ -606,7 +633,6 @@ input, select, textarea {
 			margin-top: 0;
 			margin-left: -1.5rem;
 		}
-
 			.row > * {
 				padding: 0 0 0 1.5rem;
 			}
@@ -2168,7 +2194,7 @@ input, select, textarea {
 		display: inline-block;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 0.8rem;
-		font-weight: 900;
+		font-weight: 500;
 		letter-spacing: 0.075em;
 		height: 3rem;
 		line-height: 3rem;
@@ -2294,18 +2320,18 @@ input, select, textarea {
 	button,
 	.button {
 		background-color: transparent;
-		box-shadow: inset 0 0 0 2px #212931;
-		color: #212931 !important;
+		box-shadow: inset 0 0 0 1px #8ea0b3;
+		color: #8ea0b3 !important;
 	}
 
-		input[type="submit"]:hover,
+		/* input[type="submit"]:hover,
 		input[type="reset"]:hover,
 		input[type="button"]:hover,
 		button:hover,
 		.button:hover {
 			box-shadow: inset 0 0 0 2px #18bfef;
 			color: #18bfef !important;
-		}
+		} */
 
 		input[type="submit"].primary,
 		input[type="reset"].primary,
@@ -2685,6 +2711,10 @@ input, select, textarea {
 		.image img {
 			display: block;
 		}
+		.content img {
+			max-width: 100%;
+			height: auto;
+		  }
 
 		.image.left, .image.right {
 			max-width: 40%;
